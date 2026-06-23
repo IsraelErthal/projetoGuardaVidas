@@ -1,0 +1,52 @@
+21414523f31e0d71c59783f6fc851d08
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.Menu = Menu;
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
+var _jsxFileName = "C:\\Users\\israel_erthal\\Documents\\projetodentro\\aulaFrontFinal\\aulafrontfinal\\src\\components\\Menu.js";
+function Menu({
+  onNavegar,
+  onLogout
+}) {
+  return /*#__PURE__*/(0, _jsxDevRuntime.jsxDEV)("nav", {
+    style: {
+      display: "flex",
+      gap: 12,
+      padding: 24,
+      background: "#0d0d0d"
+    },
+    children: [/*#__PURE__*/(0, _jsxDevRuntime.jsxDEV)("button", {
+      type: "button",
+      onClick: () => onNavegar === null || onNavegar === void 0 ? void 0 : onNavegar("dashboard"),
+      children: "Dashboard"
+    }, void 0, false, {
+      fileName: _jsxFileName,
+      lineNumber: 4,
+      columnNumber: 7
+    }, this), /*#__PURE__*/(0, _jsxDevRuntime.jsxDEV)("button", {
+      type: "button",
+      onClick: () => onNavegar === null || onNavegar === void 0 ? void 0 : onNavegar("selecionar-posto"),
+      children: "Postos"
+    }, void 0, false, {
+      fileName: _jsxFileName,
+      lineNumber: 7,
+      columnNumber: 7
+    }, this), /*#__PURE__*/(0, _jsxDevRuntime.jsxDEV)("button", {
+      type: "button",
+      onClick: onLogout,
+      children: "Sair"
+    }, void 0, false, {
+      fileName: _jsxFileName,
+      lineNumber: 10,
+      columnNumber: 7
+    }, this)]
+  }, void 0, true, {
+    fileName: _jsxFileName,
+    lineNumber: 3,
+    columnNumber: 5
+  }, this);
+}
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJuYW1lcyI6WyJNZW51Iiwib25OYXZlZ2FyIiwib25Mb2dvdXQiLCJfanN4RGV2UnVudGltZSIsImpzeERFViIsInN0eWxlIiwiZGlzcGxheSIsImdhcCIsInBhZGRpbmciLCJiYWNrZ3JvdW5kIiwiY2hpbGRyZW4iLCJ0eXBlIiwib25DbGljayIsImZpbGVOYW1lIiwiX2pzeEZpbGVOYW1lIiwibGluZU51bWJlciIsImNvbHVtbk51bWJlciJdLCJzb3VyY2VzIjpbIk1lbnUuanMiXSwic291cmNlc0NvbnRlbnQiOlsiZXhwb3J0IGZ1bmN0aW9uIE1lbnUoeyBvbk5hdmVnYXIsIG9uTG9nb3V0IH0pIHtcbiAgcmV0dXJuIChcbiAgICA8bmF2IHN0eWxlPXt7IGRpc3BsYXk6IFwiZmxleFwiLCBnYXA6IDEyLCBwYWRkaW5nOiAyNCwgYmFja2dyb3VuZDogXCIjMGQwZDBkXCIgfX0+XG4gICAgICA8YnV0dG9uIHR5cGU9XCJidXR0b25cIiBvbkNsaWNrPXsoKSA9PiBvbk5hdmVnYXI/LihcImRhc2hib2FyZFwiKX0+XG4gICAgICAgIERhc2hib2FyZFxuICAgICAgPC9idXR0b24+XG4gICAgICA8YnV0dG9uIHR5cGU9XCJidXR0b25cIiBvbkNsaWNrPXsoKSA9PiBvbk5hdmVnYXI/LihcInNlbGVjaW9uYXItcG9zdG9cIil9PlxuICAgICAgICBQb3N0b3NcbiAgICAgIDwvYnV0dG9uPlxuICAgICAgPGJ1dHRvbiB0eXBlPVwiYnV0dG9uXCIgb25DbGljaz17b25Mb2dvdXR9PlxuICAgICAgICBTYWlyXG4gICAgICA8L2J1dHRvbj5cbiAgICA8L25hdj5cbiAgKTtcbn1cbiJdLCJtYXBwaW5ncyI6Ijs7Ozs7Ozs7QUFBTyxTQUFTQSxJQUFJQSxDQUFDO0VBQUVDLFNBQVM7RUFBRUM7QUFBUyxDQUFDLEVBQUU7RUFDNUMsb0JBQ0UsSUFBQUMsY0FBQSxDQUFBQyxNQUFBO0lBQUtDLEtBQUssRUFBRTtNQUFFQyxPQUFPLEVBQUUsTUFBTTtNQUFFQyxHQUFHLEVBQUUsRUFBRTtNQUFFQyxPQUFPLEVBQUUsRUFBRTtNQUFFQyxVQUFVLEVBQUU7SUFBVSxDQUFFO0lBQUFDLFFBQUEsZ0JBQzNFLElBQUFQLGNBQUEsQ0FBQUMsTUFBQTtNQUFRTyxJQUFJLEVBQUMsUUFBUTtNQUFDQyxPQUFPLEVBQUVBLENBQUEsS0FBTVgsU0FBUyxhQUFUQSxTQUFTLHVCQUFUQSxTQUFTLENBQUcsV0FBVyxDQUFFO01BQUFTLFFBQUEsRUFBQztJQUUvRDtNQUFBRyxRQUFBLEVBQUFDLFlBQUE7TUFBQUMsVUFBQTtNQUFBQyxZQUFBO0lBQUEsT0FBUSxDQUFDLGVBQ1QsSUFBQWIsY0FBQSxDQUFBQyxNQUFBO01BQVFPLElBQUksRUFBQyxRQUFRO01BQUNDLE9BQU8sRUFBRUEsQ0FBQSxLQUFNWCxTQUFTLGFBQVRBLFNBQVMsdUJBQVRBLFNBQVMsQ0FBRyxrQkFBa0IsQ0FBRTtNQUFBUyxRQUFBLEVBQUM7SUFFdEU7TUFBQUcsUUFBQSxFQUFBQyxZQUFBO01BQUFDLFVBQUE7TUFBQUMsWUFBQTtJQUFBLE9BQVEsQ0FBQyxlQUNULElBQUFiLGNBQUEsQ0FBQUMsTUFBQTtNQUFRTyxJQUFJLEVBQUMsUUFBUTtNQUFDQyxPQUFPLEVBQUVWLFFBQVM7TUFBQVEsUUFBQSxFQUFDO0lBRXpDO01BQUFHLFFBQUEsRUFBQUMsWUFBQTtNQUFBQyxVQUFBO01BQUFDLFlBQUE7SUFBQSxPQUFRLENBQUM7RUFBQTtJQUFBSCxRQUFBLEVBQUFDLFlBQUE7SUFBQUMsVUFBQTtJQUFBQyxZQUFBO0VBQUEsT0FDTixDQUFDO0FBRVYiLCJpZ25vcmVMaXN0IjpbXX0=
