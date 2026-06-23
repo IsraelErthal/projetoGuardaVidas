@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Recuperação de Senha</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Mono:wght@400;500&family=DM+Sans:wght@300;400;500&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background-color: #0d0d0d;
+    font-family: 'DM Sans', sans-serif;
+    padding: 48px 16px;
+    min-height: 100vh;
+  }
+
+  .email-wrapper {
+    max-width: 560px;
+    margin: 0 auto;
+  }
+
+  /* Header */
+  .header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 40px;
+  }
+
+  .logo {
+    font-family: 'DM Mono', monospace;
+    font-size: 13px;
+    font-weight: 500;
+    color: #888;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+
+  .logo span {
+    color: #f0ece4;
+  }
+
+  .header-line {
+    flex: 1;
+    height: 0.5px;
+    background: linear-gradient(to right, transparent, #333, transparent);
+    margin: 0 20px;
+  }
+
+  .header-date {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    color: #444;
+    letter-spacing: 0.5px;
+  }
+
+  /* Card */
+  .card {
+    background: #141414;
+    border: 0.5px solid #2a2a2a;
+    border-radius: 20px;
+    overflow: hidden;
+    position: relative;
+  }
+
+  /* Top accent strip */
+  .card::before {
+    content: '';
+    display: block;
+    height: 2px;
+    background: linear-gradient(90deg, transparent 0%, #c9b88a 30%, #e8d5a3 50%, #c9b88a 70%, transparent 100%);
+  }
+
+  .card-inner {
+    padding: 48px 48px 40px;
+  }
+
+  /* Eyebrow */
+  .eyebrow {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #c9b88a;
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .eyebrow::after {
+    content: '';
+    flex: 1;
+    height: 0.5px;
+    background: #2a2a2a;
+  }
+
+  /* Heading */
+  .heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 36px;
+    font-weight: 400;
+    line-height: 1.15;
+    color: #f0ece4;
+    margin-bottom: 8px;
+  }
+
+  .heading em {
+    font-style: italic;
+    color: #c9b88a;
+  }
+
+  .subheading {
+    font-size: 14px;
+    color: #666;
+    line-height: 1.7;
+    margin-bottom: 40px;
+    max-width: 380px;
+  }
+
+  /* Divider */
+  .divider {
+    height: 0.5px;
+    background: #222;
+    margin-bottom: 40px;
+  }
+
+  /* Code section */
+  .code-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: #444;
+    margin-bottom: 14px;
+  }
+
+  .code-block {
+    background: #0d0d0d;
+    border: 0.5px solid #2a2a2a;
+    border-radius: 14px;
+    padding: 32px;
+    text-align: center;
+    margin-bottom: 16px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .code-block::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 50%;
+    transform: translateX(-50%);
+    width: 120px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #c9b88a44, transparent);
+  }
+
+  .code-digits {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .digit {
+    width: 54px;
+    height: 64px;
+    background: #181818;
+    border: 0.5px solid #333;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'DM Mono', monospace;
+    font-size: 28px;
+    font-weight: 500;
+    color: #f0ece4;
+    letter-spacing: 0;
+    position: relative;
+  }
+
+  .digit::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 10%;
+    width: 80%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #c9b88a66, transparent);
+    border-radius: 50%;
+  }
+
+  .sep {
+    font-family: 'DM Mono', monospace;
+    font-size: 20px;
+    color: #333;
+    margin: 0 -2px;
+  }
+
+  .code-hint {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    color: #444;
+    text-align: center;
+    margin-bottom: 40px;
+    letter-spacing: 0.5px;
+  }
+
+  .code-hint span {
+    color: #c9b88a;
+  }
+
+  /* Warning */
+  .warning-box {
+    background: #1a1510;
+    border: 0.5px solid #3a2e1a;
+    border-radius: 12px;
+    padding: 16px 20px;
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    margin-bottom: 32px;
+  }
+
+  .warning-icon {
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+    margin-top: 1px;
+    color: #c9b88a;
+  }
+
+  .warning-text {
+    font-size: 13px;
+    color: #888;
+    line-height: 1.6;
+  }
+
+  .warning-text strong {
+    color: #c9b88a;
+    font-weight: 500;
+  }
+
+  /* Footer inside card */
+  .card-footer {
+    border-top: 0.5px solid #1e1e1e;
+    padding: 24px 48px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .footer-left {
+    font-size: 12px;
+    color: #444;
+    line-height: 1.5;
+  }
+
+  .footer-right {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    color: #333;
+    text-align: right;
+  }
+
+  /* Bottom */
+  .bottom {
+    margin-top: 28px;
+    text-align: center;
+    font-size: 11px;
+    color: #333;
+    line-height: 1.7;
+    font-family: 'DM Mono', monospace;
+    letter-spacing: 0.3px;
+  }
+
+  .bottom a {
+    color: #555;
+    text-decoration: none;
+  }
+
+  .bottom a:hover {
+    color: #888;
+  }
+
+  @media (max-width: 480px) {
+    .card-inner { padding: 36px 28px 32px; }
+    .card-footer { padding: 20px 28px; flex-direction: column; gap: 12px; }
+    .heading { font-size: 28px; }
+    .digit { width: 44px; height: 56px; font-size: 22px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="email-wrapper">
+
+  <div class="header">
+    <div class="logo">acme<span>.</span></div>
+    <div class="header-line"></div>
+    <div class="header-date" id="dateLabel">—</div>
+  </div>
+
+  <div class="card">
+    <div class="card-inner">
+
+      <div class="eyebrow">Segurança da conta</div>
+
+      <h1 class="heading">
+        Seu código de<br>
+        <em>verificação</em>
+      </h1>
+      <p class="subheading">
+        Recebemos uma solicitação para redefinir a senha da sua conta. Use o código abaixo para continuar.
+      </p>
+
+      <div class="divider"></div>
+
+      <div class="code-label">Código de uso único</div>
+
+      <div class="code-block">
+        <div class="code-digits">
+          <div class="digit">4</div>
+          <div class="digit">8</div>
+          <div class="digit">3</div>
+          <div class="sep">·</div>
+          <div class="digit">7</div>
+          <div class="digit">1</div>
+          <div class="digit">2</div>
+        </div>
+      </div>
+
+      <div class="code-hint">
+        Expira em <span>15 minutos</span> &nbsp;·&nbsp; Válido uma única vez
+      </div>
+
+      <div class="warning-box">
+        <svg class="warning-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z" />
+        </svg>
+        <div class="warning-text">
+          <strong>Não foi você?</strong> Se você não solicitou isso, ignore este e-mail. Sua senha permanece inalterada e a conta continua segura.
+        </div>
+      </div>
+
+    </div>
+
+    <div class="card-footer">
+      <div class="footer-left">
+        Enviado para <strong style="color:#666;">u***@email.com</strong><br>
+        Solicitação originada de São Paulo, BR
+      </div>
+      <div class="footer-right">
+        acme.com<br>
+        <span style="color:#2a2a2a;">───────</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="bottom">
+    <p>© 2026 Acme, Inc. · <a href="#">Política de Privacidade</a> · <a href="#">Cancelar inscrição</a></p>
+    <p style="margin-top:6px; color:#2a2a2a;">Este e-mail foi gerado automaticamente, por favor não responda.</p>
+  </div>
+
+</div>
+
+<script>
+  const d = new Date();
+  document.getElementById('dateLabel').textContent =
+    d.toLocaleDateString('pt-BR', { day:'2-digit', month:'short', year:'numeric' })
+     .replace('.','').toUpperCase();
+</script>
+
+</body>
+</html>
